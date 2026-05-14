@@ -66,8 +66,7 @@ public class TokenService {
         Map<String, Object> resourceAccess = new LinkedHashMap<>();
         resourceAccess.put("account", accountRoles);
 
-        // Normalise issuer: strip trailing slash for iss claim consistency
-        String iss = issuerUrl.endsWith("/") ? issuerUrl : issuerUrl + "/";
+        String iss = issuerUrl;
 
         return Jwts.builder()
                 .header().add("kid", rsaKeyService.getKeyId()).and()
